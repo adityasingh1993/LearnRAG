@@ -379,4 +379,4 @@ col1, col2 = st.columns([1, 1])
 with col1:
     st.page_link("pages/8_🎮_Playground.py", label="← Playground", icon="🎮")
 with col2:
-    st.page_link("app.py", label="Home →", icon="🏠")
+    st.page_link("pages/10_🤖_Agent_Basics.py", label="Next: AI Agents →", icon="🤖")

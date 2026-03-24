@@ -87,15 +87,15 @@ st.markdown("""
 # ── Hero Section ────────────────────────────────────────────────────────
 st.markdown("""
 <div class="main-header">
-    <h1>🧠 RAG Learning Lab</h1>
-    <p>Master Retrieval-Augmented Generation — from concepts to building your own pipeline</p>
+    <h1>🧠 RAG & Agents Learning Lab</h1>
+    <p>Master RAG and AI Agents — from concepts to building your own pipelines and agents</p>
 </div>
 """, unsafe_allow_html=True)
 
 # ── Stats ───────────────────────────────────────────────────────────────
 c1, c2, c3, c4 = st.columns(4)
 with c1:
-    st.markdown('<div class="stat-card"><div class="number">8</div><div class="label">Interactive Modules</div></div>', unsafe_allow_html=True)
+    st.markdown('<div class="stat-card"><div class="number">15</div><div class="label">Interactive Modules</div></div>', unsafe_allow_html=True)
 with c2:
     st.markdown('<div class="stat-card"><div class="number">🎮</div><div class="label">Drag & Drop Playground</div></div>', unsafe_allow_html=True)
 with c3:
@@ -127,8 +127,20 @@ modules = [
      "advanced", "7_📊_Evaluation"),
     ("🎮", "Playground", "Build your own RAG pipeline visually!",
      "advanced", "8_🎮_Playground"),
-    ("❓", "Help & Reference", "How every Playground feature works, with resources.",
+    ("❓", "RAG Help", "How every RAG Playground feature works, with resources.",
      "advanced", "9_❓_Help"),
+    ("🤖", "Agent Basics", "What are AI Agents? How do they differ from RAG?",
+     "beginner", "10_🤖_Agent_Basics"),
+    ("🔧", "Tools", "Function calling, tool creation, and interactive demos.",
+     "beginner", "11_🔧_Tools"),
+    ("🔄", "Agent Patterns", "ReAct, Plan-Execute, Reflection — see them run live.",
+     "intermediate", "12_🔄_Agent_Patterns"),
+    ("🌐", "Multi-Agent", "Router, orchestrator, and debate patterns for complex tasks.",
+     "intermediate", "13_🌐_Multi_Agent"),
+    ("🎮", "Agent Playground", "Build your own agent with tools, RAG, and chat!",
+     "advanced", "14_🎮_Agent_Playground"),
+    ("❓", "Agent Help", "Reference for all agent features, patterns, and resources.",
+     "advanced", "15_❓_Agent_Help"),
 ]
 
 rows = [modules[i:i+4] for i in range(0, len(modules), 4)]
@@ -148,7 +160,7 @@ for row in rows:
 st.markdown("")
 
 # ── How it Works ────────────────────────────────────────────────────────
-st.markdown("## How RAG Works — In 30 Seconds")
+st.markdown("## How RAG Works")
 st.markdown("")
 
 flow_html = """
@@ -198,6 +210,55 @@ flow_html = """
 """
 st.html(flow_html)
 
+st.markdown("## How AI Agents Work")
+
+agent_flow_html = """
+<div style="display:flex;align-items:center;justify-content:center;gap:12px;padding:30px 0;flex-wrap:wrap;">
+    <div style="text-align:center;padding:20px;background:linear-gradient(135deg,#FF8C9422,#FF8C9411);
+                border:2px solid #FF8C94;border-radius:16px;min-width:140px;">
+        <div style="font-size:32px;">❓</div>
+        <div style="color:#FF8C94;font-weight:600;margin-top:8px;">User Question</div>
+        <div style="color:#666;font-size:0.8rem;">Complex task</div>
+    </div>
+    <div style="font-size:28px;color:#555;">→</div>
+    <div style="text-align:center;padding:20px;background:linear-gradient(135deg,#6C63FF22,#6C63FF11);
+                border:2px solid #6C63FF;border-radius:16px;min-width:140px;">
+        <div style="font-size:32px;">🧠</div>
+        <div style="color:#6C63FF;font-weight:600;margin-top:8px;">Think</div>
+        <div style="color:#666;font-size:0.8rem;">LLM reasons</div>
+    </div>
+    <div style="font-size:28px;color:#555;">→</div>
+    <div style="text-align:center;padding:20px;background:linear-gradient(135deg,#00CC9622,#00CC9611);
+                border:2px solid #00CC96;border-radius:16px;min-width:140px;">
+        <div style="font-size:32px;">🔧</div>
+        <div style="color:#00CC96;font-weight:600;margin-top:8px;">Use Tools</div>
+        <div style="color:#666;font-size:0.8rem;">Calculator, search, RAG</div>
+    </div>
+    <div style="font-size:28px;color:#555;">→</div>
+    <div style="text-align:center;padding:20px;background:linear-gradient(135deg,#FFAA0022,#FFAA0011);
+                border:2px solid #FFAA00;border-radius:16px;min-width:140px;">
+        <div style="font-size:32px;">👁️</div>
+        <div style="color:#FFAA00;font-weight:600;margin-top:8px;">Observe</div>
+        <div style="color:#666;font-size:0.8rem;">See tool results</div>
+    </div>
+    <div style="font-size:28px;color:#555;">→</div>
+    <div style="text-align:center;padding:20px;background:linear-gradient(135deg,#00D2FF22,#00D2FF11);
+                border:2px solid #00D2FF;border-radius:16px;min-width:140px;">
+        <div style="font-size:32px;">🔄</div>
+        <div style="color:#00D2FF;font-weight:600;margin-top:8px;">Iterate</div>
+        <div style="color:#666;font-size:0.8rem;">Repeat until done</div>
+    </div>
+    <div style="font-size:28px;color:#555;">→</div>
+    <div style="text-align:center;padding:20px;background:linear-gradient(135deg,#98D8C822,#98D8C811);
+                border:2px solid #98D8C8;border-radius:16px;min-width:140px;">
+        <div style="font-size:32px;">✅</div>
+        <div style="color:#98D8C8;font-weight:600;margin-top:8px;">Answer</div>
+        <div style="color:#666;font-size:0.8rem;">Grounded response</div>
+    </div>
+</div>
+"""
+st.html(agent_flow_html)
+
 # ── Quick Start Guide ───────────────────────────────────────────────────
 st.markdown("## Quick Start")
 col1, col2 = st.columns(2)
@@ -212,8 +273,8 @@ with col1:
 with col2:
     st.markdown("""
     #### 🛠️ Ready to Build?
-    Jump straight to the **Playground** and assemble a RAG pipeline
-    using drag-and-drop. Configure LLM providers in the sidebar.
+    Jump to the **RAG Playground** to build a retrieval pipeline, or the
+    **Agent Playground** to build an AI agent with tools. Configure LLM providers in the sidebar.
     """)
 
 st.markdown("")
@@ -241,7 +302,7 @@ st.markdown("---")
 st.markdown(
     '<div style="text-align:center;color:#555;padding:1rem;">'
     'Built with Streamlit | '
-    '<span style="color:#6C63FF;">RAG Learning Lab</span> — Learn by doing'
+    '<span style="color:#6C63FF;">RAG & Agents Learning Lab</span> — Learn by doing'
     '</div>',
     unsafe_allow_html=True,
 )

@@ -1,6 +1,6 @@
 # RAG Learning Lab — Project Memory
 
-> **Last updated:** 2026-03-23
+> **Last updated:** 2026-03-24
 > **Repo:** `git@github.com:adityasingh1993/LearnRAG.git` (branch: `main`)
 > **Workspace:** `e:\CursorProjects\RAG`
 
@@ -8,7 +8,7 @@
 
 ## What This Project Is
 
-An **interactive educational Streamlit app** that teaches Retrieval-Augmented Generation (RAG) from basics to advanced. Instead of slides, users learn by building — every concept has an interactive demo. The app culminates in a full **Playground** where users visually assemble a RAG pipeline, chat with it, and see token costs in real time.
+An **interactive educational Streamlit app** that teaches **RAG** and **AI Agents** from basics to advanced. Instead of slides, users learn by building — every concept has an interactive demo. The app has two tracks: a **RAG track** (9 pages) culminating in a RAG Playground, and an **Agents track** (6 pages) culminating in an Agent Playground with tool use and multi-agent patterns.
 
 **100% Python. No JavaScript. No frontend framework.**
 
@@ -24,7 +24,7 @@ An **interactive educational Streamlit app** that teaches Retrieval-Augmented Ge
 └──────────────┬───────────────────────────────────────────────┘
                │
     ┌──────────▼──────────┐
-    │     pages/ (9 pages) │
+    │    pages/ (15 pages) │
     │  Each page imports:   │
     │  - components/sidebar │
     │  - components/viz     │
@@ -32,7 +32,7 @@ An **interactive educational Streamlit app** that teaches Retrieval-Augmented Ge
     └──────────┬───────────┘
                │
     ┌──────────▼──────────────────────────────────────┐
-    │                    core/ (11 modules)             │
+    │                    core/ (13 modules)             │
     │                                                   │
     │  config.py ──► llm_providers.py                   │
     │                embeddings.py                      │
@@ -43,7 +43,9 @@ An **interactive educational Streamlit app** that teaches Retrieval-Augmented Ge
     │  context.py                                       │
     │  token_tracker.py                                 │
     │                                                   │
-    │  rag_pipeline.py  (orchestrator — wires all above)│
+    │  rag_pipeline.py  (RAG orchestrator)              │
+    │  tools.py         (tool system for agents)        │
+    │  agent_loop.py    (agent executor — 4 patterns)   │
     └───────────────────────────────────────────────────┘
 ```
 
@@ -61,7 +63,13 @@ An **interactive educational Streamlit app** that teaches Retrieval-Augmented Ge
 | 6 | Full Pipeline | `6_🔬_Full_Pipeline.py` | End-to-end RAG with all options exposed |
 | 7 | Evaluation | `7_📊_Evaluation.py` | Retrieval metrics, LLM-as-judge, A/B test |
 | 8 | Playground | `8_🎮_Playground.py` | Visual builder, chat UI, token dashboard |
-| 9 | Help | `9_❓_Help.py` | Reference docs for every Playground feature |
+| 9 | RAG Help | `9_❓_Help.py` | Reference docs for every RAG Playground feature |
+| 10 | Agent Basics | `10_🤖_Agent_Basics.py` | What agents are, agent loop, comparison with RAG |
+| 11 | Tools | `11_🔧_Tools.py` | Function calling, 7 built-in tools, custom tool builder |
+| 12 | Agent Patterns | `12_🔄_Agent_Patterns.py` | ReAct, Plan-Execute, Reflection, Tool Choice — live demos |
+| 13 | Multi-Agent | `13_🌐_Multi_Agent.py` | Router, orchestrator, debate patterns — live router demo |
+| 14 | Agent Playground | `14_🎮_Agent_Playground.py` | Build your own agent, tool selection, RAG integration, chat |
+| 15 | Agent Help | `15_❓_Agent_Help.py` | Reference for all agent features, patterns, resources |
 
 ---
 
@@ -146,6 +154,27 @@ An **interactive educational Streamlit app** that teaches Retrieval-Augmented Ge
   - `_rerank_with_llm()` — LLM scores each chunk 1-10
   - Token tracking at every step via `core.token_tracker`
 
+### `core/tools.py` (~240 lines) — AGENT TOOL SYSTEM
+- `ToolParameter` dataclass (name, type, description, required)
+- `Tool` dataclass (name, description, parameters, function, category) — has `run(**kwargs)` and `schema_for_prompt()`
+- `ToolRegistry` class — register/get/list/run_tool/format_for_prompt
+- **7 built-in tools:** `calculator` (math eval), `datetime` (current time), `text_stats` (word/sentence counts), `web_search` (simulated), `json_parse`, `unit_convert`, `string_transform`
+- `BUILTIN_TOOLS` dict
+- Factories: `create_tool_registry(tool_names)`, `create_custom_tool(name, description, parameters, code)`
+
+### `core/agent_loop.py` (~300 lines) — AGENT EXECUTION ENGINE
+- `AgentStep` dataclass (step_number, thought, action, action_input, observation, is_final, duration_ms)
+- `AgentResult` dataclass (answer, steps, total_duration_ms, pattern, tools_used, token_usage)
+- `AGENT_PATTERNS` dict — react, plan_execute, reflection, tool_choice
+- `AgentExecutor` class:
+  - `__init__`: takes llm_provider, tool_registry, pattern, max_steps
+  - `run(question, history)` → dispatches to `_run_react`, `_run_plan_execute`, `_run_reflection`, `_run_tool_choice`
+  - **ReAct**: Thought → Action → Observation loop until "finish"
+  - **Plan-Execute**: LLM creates numbered plan, then executes each step with tools, then synthesises
+  - **Reflection**: Tool use → Initial answer → Critique → Refined answer
+  - **Tool Choice**: Pick single best tool, use it once, formulate answer
+- Prompt templates: `_REACT_SYSTEM`, `_PLAN_SYSTEM`, `_REFLECTION_SYSTEM`, `_TOOL_CHOICE_SYSTEM`
+
 ---
 
 ## Components
@@ -211,11 +240,11 @@ python-docx>=1.0.0
 
 | Area | Files | Lines |
 |------|-------|-------|
-| `core/` | 11 .py | ~3,300 |
-| `pages/` | 9 .py | ~3,050 |
+| `core/` | 13 .py | ~3,800 |
+| `pages/` | 15 .py | ~6,000 |
 | `components/` | 2 .py | ~450 |
-| `app.py` | 1 | 248 |
-| **Total** | **23 .py** | **~6,600** |
+| `app.py` | 1 | ~290 |
+| **Total** | **31 .py** | **~10,500** |
 
 ---
 
@@ -273,9 +302,40 @@ Return RAGResult(answer, steps, chunks, timing, guardrails, token_usage)
 
 ---
 
+## Agent Data Flow: Query Lifecycle
+
+```
+User types question in Agent Playground chat
+        │
+        ▼
+[AgentExecutor.run(question)]
+        │
+        ▼
+[Pattern dispatch] ── react / plan_execute / reflection / tool_choice
+        │
+        ▼
+[LLM thinks] ── generates Thought + Action + Action Input
+        │
+        ▼
+[Tool execution] ── ToolRegistry.run_tool(action, **kwargs)
+        │                returns Observation string
+        ▼
+[Loop] ── append Observation to conversation, ask LLM again
+        │  (ReAct: up to max_steps until Action=finish)
+        │  (Plan-Execute: one step per plan item)
+        │  (Reflection: initial → critique → refined)
+        │  (Tool Choice: single tool call, then answer)
+        ▼
+[Final Answer] ── returned in AgentResult with all steps
+```
+
+---
+
 ## Known Issues / Future Ideas
 
 - `streamlit-flow-component` in requirements but unused (Playground uses custom HTML)
 - Ollama embedding auto-discovery could be more robust
 - No persistent evaluation results (test suite results are ephemeral)
 - No user auth or multi-tenant support (single-user local app)
+- Agent tools are simulated (web_search returns canned responses) — could add real API calls
+- Could add agent evaluation page (similar to RAG evaluation)

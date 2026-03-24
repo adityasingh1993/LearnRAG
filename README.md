@@ -1,10 +1,12 @@
-# 🧠 RAG Learning Lab
+# 🧠 RAG & Agents Learning Lab
 
-An interactive educational app for learning **Retrieval-Augmented Generation (RAG)** from basics to advanced — built entirely in Python with Streamlit.
+An interactive educational app for learning **Retrieval-Augmented Generation (RAG)** and **AI Agents** from basics to advanced — built entirely in Python with Streamlit.
 
 No boring slides. Learn by building.
 
 ## Features
+
+### RAG Track
 
 | Module | What You'll Learn |
 |--------|------------------|
@@ -15,8 +17,19 @@ No boring slides. Learn by building.
 | 🤖 **Generation** | Prompt templates (Standard, CoT, Analysis), streaming |
 | 🔬 **Full Pipeline** | End-to-end walkthrough with all strategies & guardrails |
 | 📊 **Evaluation** | Enterprise-grade retrieval & generation metrics, LLM-as-judge, A/B comparison |
-| 🎮 **Playground** | Visual pipeline builder — configure, chat, experiment |
-| ❓ **Help & Reference** | How every Playground feature works, with learning resources |
+| 🎮 **RAG Playground** | Visual pipeline builder — configure, chat, experiment |
+| ❓ **RAG Help** | How every RAG Playground feature works, with learning resources |
+
+### Agents Track
+
+| Module | What You'll Learn |
+|--------|------------------|
+| 🤖 **Agent Basics** | What agents are, how they differ from RAG, the agent loop |
+| 🔧 **Tools** | Function calling, 7 built-in tools, custom tool builder |
+| 🔄 **Agent Patterns** | ReAct, Plan-Execute, Reflection, Tool Choice — run them live |
+| 🌐 **Multi-Agent** | Router, orchestrator, and debate patterns for complex tasks |
+| 🎮 **Agent Playground** | Build your own agent with tools, RAG integration, and chat |
+| ❓ **Agent Help** | Reference for all agent features, patterns, and resources |
 
 ### Chunking Strategies (8)
 
@@ -94,6 +107,35 @@ Enable LLM-based reranking to re-score retrieved chunks with the language model 
 
 Upload and parse: **PDF**, **DOCX** (Word), **VSDX** (Visio), **TXT**
 
+### Agent Patterns (4)
+
+| Pattern | Description |
+|---------|-------------|
+| **ReAct** | Reason + Act loop — think, pick a tool, observe, repeat |
+| **Plan-and-Execute** | Create a step-by-step plan, then execute each step |
+| **Reflection** | Generate answer, critique it, then refine |
+| **Tool Choice** | Pick the single best tool and use it once |
+
+### Built-in Agent Tools (7)
+
+| Tool | Category | Description |
+|------|----------|-------------|
+| **calculator** | Math | Evaluate math expressions (sqrt, sin, log, etc.) |
+| **datetime** | Utility | Get current date and time |
+| **text_stats** | Text | Analyse text (word count, sentence count, etc.) |
+| **web_search** | Search | Search the web for information |
+| **json_parse** | Utility | Parse and pretty-print JSON |
+| **unit_convert** | Math | Convert between units (km/miles, kg/lbs, etc.) |
+| **string_transform** | Text | Transform strings (uppercase, reverse, etc.) |
+
+### Multi-Agent Patterns
+
+| Pattern | Description |
+|---------|-------------|
+| **Router** | Classifies queries and routes to specialist agents |
+| **Orchestrator** | Decomposes complex tasks and delegates to workers |
+| **Debate** | Multiple agents argue perspectives, then synthesise |
+
 ## Quick Start
 
 ```bash
@@ -141,7 +183,9 @@ RAG/
 │   ├── context.py              # 6 conversation context management strategies
 │   ├── token_tracker.py        # Token counting, session tracking, cost estimation
 │   ├── document_loader.py      # PDF / DOCX / VSDX / TXT parser
-│   └── rag_pipeline.py         # Pipeline: reasoning, reranking, guardrails, context, tokens
+│   ├── rag_pipeline.py         # Pipeline: reasoning, reranking, guardrails, context, tokens
+│   ├── tools.py                # Tool system: registry, 7 built-in tools, custom tool builder
+│   └── agent_loop.py           # Agent executor: ReAct, Plan-Execute, Reflection, Tool Choice
 ├── components/
 │   ├── sidebar.py              # Shared provider configuration UI
 │   └── viz.py                  # Plotly visualizations
@@ -154,7 +198,13 @@ RAG/
 │   ├── 6_🔬_Full_Pipeline.py
 │   ├── 7_📊_Evaluation.py
 │   ├── 8_🎮_Playground.py
-│   └── 9_❓_Help.py
+│   ├── 9_❓_Help.py
+│   ├── 10_🤖_Agent_Basics.py
+│   ├── 11_🔧_Tools.py
+│   ├── 12_🔄_Agent_Patterns.py
+│   ├── 13_🌐_Multi_Agent.py
+│   ├── 14_🎮_Agent_Playground.py
+│   └── 15_❓_Agent_Help.py
 └── data/samples/               # Sample documents
 ```
 
@@ -167,6 +217,9 @@ RAG/
 - **Retrieval**: Similarity, MMR, Hybrid, Multi-Query, HyDE
 - **Guardrails**: 5 input + 4 output (PII, injection, hallucination, toxicity, relevance)
 - **Context**: 6 strategies (none, full, sliding window, summary buffer, token budget, relevant)
+- **Agents**: 4 patterns (ReAct, Plan-Execute, Reflection, Tool Choice)
+- **Agent Tools**: 7 built-in + custom tool builder
+- **Multi-Agent**: Router, Orchestrator, Debate patterns
 - **Documents**: PDF, DOCX, VSDX, TXT
 - **Visualization**: Plotly
 - **Language**: 100% Python
