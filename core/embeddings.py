@@ -193,40 +193,6 @@ class TFIDFEmbeddings(EmbeddingProvider):
         return (result[0] / norm) if norm > 0 else result[0]
 
 
-class SimpleHashEmbeddings(EmbeddingProvider):
-    """
-    Deterministic hash-based embeddings. Always works, no fitting needed.
-    Useful as a quick demo - shows the concept of mapping text to vectors.
-    Not semantically meaningful but demonstrates the interface.
-    """
-
-    def __init__(self, dim: int = 64):
-        self._dim = dim
-
-    def name(self) -> str:
-        return f"Hash Embeddings (demo, dim={self._dim})"
-
-    def dimension(self) -> int:
-        return self._dim
-
-    def _hash_text(self, text: str) -> np.ndarray:
-        import hashlib
-        words = text.lower().split()
-        vec = np.zeros(self._dim)
-        for i, word in enumerate(words):
-            h = int(hashlib.sha256(word.encode()).hexdigest(), 16)
-            for d in range(self._dim):
-                bit = (h >> d) & 1
-                vec[d] += (1 if bit else -1) * (1.0 / (i + 1))
-        norm = np.linalg.norm(vec)
-        return vec / norm if norm > 0 else vec
-
-    def embed(self, texts: list[str]) -> np.ndarray:
-        return np.array([self._hash_text(t) for t in texts])
-
-    def embed_query(self, text: str) -> np.ndarray:
-        return self._hash_text(text)
-
 
 def create_embeddings(provider: str, **kwargs) -> EmbeddingProvider:
     """Factory function to create an embedding provider."""
@@ -235,7 +201,6 @@ def create_embeddings(provider: str, **kwargs) -> EmbeddingProvider:
         "openrouter": OpenRouterEmbeddings,
         "ollama": OllamaEmbeddings,
         "tfidf": TFIDFEmbeddings,
-        "hash": SimpleHashEmbeddings,
     }
     if provider not in providers:
         raise ValueError(f"Unknown embedding provider: {provider}. Choose from {list(providers.keys())}")

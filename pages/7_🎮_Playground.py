@@ -69,7 +69,6 @@ COMPONENTS = {
         "color": "#96CEB4",
         "options": {
             "tfidf": {"label": "TF-IDF (Free)", "desc": "Local, no API key needed"},
-            "hash": {"label": "Hash (Demo)", "desc": "Fast demo embeddings"},
             "openai": {"label": "OpenAI", "desc": "Best quality, needs API key"},
             "openrouter": {"label": "OpenRouter", "desc": "Many embedding models, one API key"},
             "ollama": {"label": "Ollama", "desc": "Local, needs Ollama running"},

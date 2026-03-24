@@ -65,8 +65,8 @@ def render_provider_config():
 
         st.divider()
 
-        embed_options = ["tfidf", "hash"]
-        embed_labels = {"tfidf": "TF-IDF (Local, Free)", "hash": "Hash (Demo)"}
+        embed_options = ["tfidf"]
+        embed_labels = {"tfidf": "TF-IDF (Local, Free)"}
         if providers["openai"].is_available or st.session_state.get("openai_key"):
             embed_options.insert(0, "openai")
             embed_labels["openai"] = "OpenAI Embeddings"
