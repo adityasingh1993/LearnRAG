@@ -2,7 +2,6 @@
 
 import streamlit as st
 
-st.set_page_config(page_title="A2A Help", page_icon="❓", layout="wide")
 
 st.title("❓ A2A Protocol — Help & Reference")
 st.markdown("Complete reference for the Agent-to-Agent protocol learning track.")
@@ -233,4 +232,4 @@ cols = st.columns(3)
 with cols[0]:
     st.page_link("pages/26_🎮_A2A_Playground.py", label="← A2A Playground", icon="🎮")
 with cols[2]:
-    st.page_link("app.py", label="🏠 Home", icon="🏠")
+    st.page_link("home.py", label="🏠 Home", icon="🏠")

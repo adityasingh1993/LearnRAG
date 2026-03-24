@@ -5,7 +5,6 @@ Describes every Playground feature, how it works, and links to further resources
 
 import streamlit as st
 
-st.set_page_config(page_title="Help | RAG Lab", page_icon="❓", layout="wide")
 
 st.title("❓ Help & Reference")
 st.markdown("*Everything you need to know about the Playground and its features.*")

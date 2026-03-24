@@ -6,7 +6,6 @@ from core.mcp_simulator import (
     MCPServer, MCPClient, MCPResource, MCPTool, MCPToolParam, MCPPrompt,
 )
 
-st.set_page_config(page_title="MCP Server Builder", page_icon="🛠️", layout="wide")
 
 st.title("🛠️ MCP Server Builder")
 st.markdown("""

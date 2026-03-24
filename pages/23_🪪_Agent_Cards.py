@@ -6,7 +6,6 @@ from core.a2a_simulator import (
     AgentCard, AgentSkill, create_demo_agents, create_demo_registry,
 )
 
-st.set_page_config(page_title="Agent Cards & Discovery", page_icon="🪪", layout="wide")
 
 st.title("🪪 Agent Cards & Discovery")
 st.markdown("""

@@ -7,7 +7,6 @@ from core.mcp_simulator import (
     MCPHost, MCPServer, MCPClient, DEMO_SERVERS,
 )
 
-st.set_page_config(page_title="MCP Playground", page_icon="🎮", layout="wide")
 
 st.title("🎮 MCP Playground")
 st.markdown("""

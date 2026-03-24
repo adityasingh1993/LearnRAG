@@ -5,7 +5,6 @@ Introduction to AI Agents — what they are, how the agent loop works, and key c
 
 import streamlit as st
 
-st.set_page_config(page_title="Agent Basics | RAG Lab", page_icon="🤖", layout="wide")
 
 from components.sidebar import render_provider_config
 

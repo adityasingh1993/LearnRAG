@@ -6,7 +6,6 @@ Build, configure, and chat with your own AI agent — the culminating experience
 import time
 import streamlit as st
 
-st.set_page_config(page_title="Agent Playground | RAG Lab", page_icon="🎮", layout="wide")
 
 from components.sidebar import render_provider_config, get_llm_provider
 from core.tools import (

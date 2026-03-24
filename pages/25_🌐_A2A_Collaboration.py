@@ -5,7 +5,6 @@ import json
 import time
 from core.a2a_simulator import create_demo_registry, TaskState
 
-st.set_page_config(page_title="A2A Collaboration", page_icon="🌐", layout="wide")
 
 st.title("🌐 A2A Multi-Agent Collaboration")
 st.markdown("See how multiple agents work together through the A2A protocol.")

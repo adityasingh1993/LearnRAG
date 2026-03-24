@@ -2,7 +2,6 @@
 
 import streamlit as st
 
-st.set_page_config(page_title="MCP Help", page_icon="❓", layout="wide")
 
 st.title("❓ MCP — Help & Reference")
 st.markdown("Complete reference for the Model Context Protocol learning track.")

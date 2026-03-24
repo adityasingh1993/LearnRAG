@@ -5,7 +5,6 @@ Explore built-in tools, test them interactively, build custom tools, and learn h
 
 import streamlit as st
 
-st.set_page_config(page_title="Tools & Function Calling | RAG Lab", page_icon="🔧", layout="wide")
 
 from components.sidebar import render_provider_config, get_llm_provider
 from core.tools import (

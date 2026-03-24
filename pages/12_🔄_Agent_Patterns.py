@@ -7,7 +7,6 @@ import time
 
 import streamlit as st
 
-st.set_page_config(page_title="Agent Patterns | RAG Lab", page_icon="🔄", layout="wide")
 
 from components.sidebar import render_provider_config, get_llm_provider
 from core.agent_loop import AGENT_PATTERNS, AgentExecutor, AgentResult, AgentStep

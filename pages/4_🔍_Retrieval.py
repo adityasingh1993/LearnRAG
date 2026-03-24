@@ -7,7 +7,6 @@ import streamlit as st
 import numpy as np
 import os
 
-st.set_page_config(page_title="Retrieval | RAG Lab", page_icon="🔍", layout="wide")
 
 from components.sidebar import render_provider_config, get_embedding_provider
 from components.viz import plot_embeddings_2d, plot_retrieval_scores

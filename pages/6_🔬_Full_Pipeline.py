@@ -7,7 +7,6 @@ import streamlit as st
 import os
 import time
 
-st.set_page_config(page_title="Full Pipeline | RAG Lab", page_icon="🔬", layout="wide")
 
 from components.sidebar import render_provider_config, get_embedding_provider, get_llm_provider, get_vector_store
 from components.viz import render_pipeline_flow, render_step_metrics, plot_embeddings_2d, plot_retrieval_scores

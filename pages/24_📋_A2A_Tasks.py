@@ -8,7 +8,6 @@ from core.a2a_simulator import (
     Artifact, create_demo_agents,
 )
 
-st.set_page_config(page_title="A2A Tasks", page_icon="📋", layout="wide")
 
 st.title("📋 A2A Tasks & Communication")
 st.markdown("Explore the task lifecycle, message passing, and artifact generation in the A2A protocol.")

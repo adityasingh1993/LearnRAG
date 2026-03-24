@@ -9,7 +9,6 @@ import os
 import json
 import textwrap
 
-st.set_page_config(page_title="Playground | RAG Lab", page_icon="🎮", layout="wide")
 
 from components.sidebar import render_provider_config
 from core.document_loader import SUPPORTED_EXTENSIONS

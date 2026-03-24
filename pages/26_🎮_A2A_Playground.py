@@ -9,7 +9,6 @@ from core.a2a_simulator import (
     create_demo_registry, create_demo_agents,
 )
 
-st.set_page_config(page_title="A2A Playground", page_icon="🎮", layout="wide")
 
 st.title("🎮 A2A Playground")
 st.markdown("""

@@ -2,7 +2,6 @@
 
 import streamlit as st
 
-st.set_page_config(page_title="A2A Basics", page_icon="🤝", layout="wide")
 
 st.title("🤝 Agent-to-Agent (A2A) Protocol — Basics")
 st.markdown("""

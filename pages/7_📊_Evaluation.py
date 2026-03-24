@@ -7,7 +7,6 @@ Interactive metrics, LLM-as-judge, and side-by-side comparison.
 import streamlit as st
 import numpy as np
 
-st.set_page_config(page_title="Evaluation | RAG Lab", page_icon="📊", layout="wide")
 
 from components.sidebar import render_provider_config, get_llm_provider, get_embedding_provider
 

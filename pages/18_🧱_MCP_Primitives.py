@@ -8,7 +8,6 @@ from core.mcp_simulator import (
     DEMO_SERVERS,
 )
 
-st.set_page_config(page_title="MCP Primitives", page_icon="🧱", layout="wide")
 
 st.title("🧱 MCP Primitives — Interactive Explorer")
 st.markdown("""

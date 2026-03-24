@@ -3,7 +3,6 @@
 import streamlit as st
 import json
 
-st.set_page_config(page_title="MCP Architecture", page_icon="🏗️", layout="wide")
 
 st.title("🏗️ MCP Architecture Deep Dive")
 st.markdown("Understand how Hosts, Clients, and Servers interact through the MCP protocol.")

@@ -5,7 +5,6 @@ See how LLMs use retrieved context to generate grounded answers.
 
 import streamlit as st
 
-st.set_page_config(page_title="Generation | RAG Lab", page_icon="🤖", layout="wide")
 
 from components.sidebar import render_provider_config, get_llm_provider, get_embedding_provider
 from core.vector_store import NumpyVectorStore

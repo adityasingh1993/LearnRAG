@@ -5,7 +5,6 @@ Learn about Router, Orchestrator, and Debate patterns for coordinating multiple 
 
 import streamlit as st
 
-st.set_page_config(page_title="Multi-Agent Systems | RAG Lab", page_icon="🌐", layout="wide")
 
 from components.sidebar import render_provider_config, get_llm_provider
 from core.tools import BUILTIN_TOOLS, create_tool_registry, Tool, ToolParameter
