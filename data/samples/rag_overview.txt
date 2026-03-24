@@ -1,0 +1,21 @@
+Retrieval-Augmented Generation (RAG) is a technique that enhances large language models by providing them with relevant external knowledge at inference time. Instead of relying solely on what the model learned during training, RAG retrieves information from a knowledge base and includes it in the prompt.
+
+The motivation behind RAG comes from several limitations of standard LLMs. First, LLMs have a knowledge cutoff date and cannot know about events after their training. Second, LLMs can hallucinate, generating plausible-sounding but incorrect information. Third, LLMs lack domain-specific knowledge unless specifically fine-tuned.
+
+RAG addresses these issues by following a simple but powerful workflow. When a user asks a question, the system first converts the question into a vector embedding. This embedding is then used to search a vector database containing pre-processed documents. The most relevant document chunks are retrieved and added to the LLM's prompt as context. Finally, the LLM generates an answer based on both the question and the retrieved context.
+
+The key components of a RAG system include: a document loader that ingests raw data, a text splitter that chunks documents into manageable pieces, an embedding model that converts text to vectors, a vector store that enables efficient similarity search, a retriever that finds relevant chunks, and a language model that generates the final response.
+
+Embeddings are numerical representations of text in a high-dimensional space. Similar texts have similar embeddings, meaning their vectors are close together. This property enables semantic search, where we find documents by meaning rather than just keyword matching. Common embedding models include OpenAI's text-embedding-3-small, sentence-transformers, and Ollama's nomic-embed-text.
+
+Vector stores are specialized databases designed for storing and searching through embeddings efficiently. They use algorithms like HNSW (Hierarchical Navigable Small World) for approximate nearest neighbor search. Popular vector stores include ChromaDB, Pinecone, Weaviate, FAISS, and Qdrant.
+
+Chunking strategy significantly impacts RAG performance. If chunks are too large, they may contain irrelevant information that dilutes the useful content. If too small, they may lack sufficient context. Common strategies include fixed-size character splitting, recursive text splitting, sentence-based splitting, and semantic chunking.
+
+Retrieval quality is crucial for RAG performance. Simple cosine similarity search works well in many cases, but advanced techniques like Maximum Marginal Relevance (MMR) can improve results by balancing relevance with diversity. Hybrid search combines semantic search with traditional keyword-based BM25 search for better recall.
+
+The generation step uses the retrieved context to produce accurate, grounded responses. A well-designed prompt template instructs the LLM to base its answer on the provided context and to acknowledge when it cannot find the answer. This reduces hallucination and improves reliability.
+
+Evaluation of RAG systems involves multiple metrics. Retrieval quality can be measured by precision, recall, and mean reciprocal rank. Generation quality can be assessed through faithfulness (does the answer match the context?), answer relevance, and context relevance. Frameworks like RAGAS provide automated evaluation pipelines.
+
+Advanced RAG techniques include query decomposition (breaking complex queries into sub-queries), hypothetical document embeddings (HyDE), self-reflection and correction, multi-hop retrieval, and agentic RAG where the system can decide when and how to retrieve information.

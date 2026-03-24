@@ -1,0 +1,23 @@
+Transformers are a type of neural network architecture introduced in the paper "Attention Is All You Need" by Vaswani et al. in 2017. They have since become the foundation for most modern natural language processing systems, including large language models like GPT, Claude, and Llama.
+
+The key innovation of transformers is the self-attention mechanism. Unlike recurrent neural networks (RNNs) that process sequences one token at a time, transformers can attend to all parts of the input simultaneously. This allows them to capture long-range dependencies and enables parallel processing during training.
+
+The original transformer architecture consists of an encoder and a decoder, each made up of multiple layers. The encoder processes the input sequence, and the decoder generates the output sequence. Each layer contains a multi-head self-attention sublayer and a feed-forward neural network sublayer, with residual connections and layer normalization.
+
+Multi-head attention allows the model to jointly attend to information from different representation subspaces. Instead of computing a single attention function, the model runs multiple attention heads in parallel and concatenates their outputs. This gives the model the ability to focus on different aspects of the input simultaneously.
+
+The attention mechanism works by computing query, key, and value vectors for each token. The attention score between two tokens is the dot product of their query and key vectors, scaled by the square root of the dimension. These scores are normalized with softmax and used to compute a weighted sum of the value vectors.
+
+Positional encoding is necessary because transformers have no inherent sense of token order. The original paper used sinusoidal positional encodings, but modern models often use learned positional embeddings or relative positional encodings like RoPE (Rotary Position Embedding).
+
+BERT (Bidirectional Encoder Representations from Transformers) uses only the encoder part and is trained with masked language modeling, where random tokens are masked and the model learns to predict them. BERT excels at understanding tasks like classification, named entity recognition, and question answering.
+
+GPT (Generative Pre-trained Transformer) uses only the decoder part with causal (left-to-right) attention masking. It is trained as an autoregressive language model, predicting the next token given all previous tokens. GPT models have shown remarkable ability in text generation, code writing, and reasoning.
+
+T5 (Text-to-Text Transfer Transformer) uses the full encoder-decoder architecture and frames all NLP tasks as text-to-text problems. This unified approach simplifies multi-task learning and transfer learning.
+
+Scaling laws have shown that transformer performance improves predictably with increases in model size, dataset size, and compute. This has led to the development of increasingly large models, from BERT's 110 million parameters to GPT-4's rumored trillions of parameters.
+
+Fine-tuning transformers for specific tasks has evolved from full fine-tuning to parameter-efficient methods like LoRA (Low-Rank Adaptation), QLoRA, and adapter layers. These methods allow customizing large models with minimal computational resources.
+
+Transformer-based embedding models convert text into dense vector representations that capture semantic meaning. These embeddings are the foundation of modern search systems, recommendation engines, and RAG pipelines. Models like sentence-transformers produce embeddings where semantically similar texts are close together in vector space.
