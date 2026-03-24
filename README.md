@@ -1,6 +1,6 @@
-# 🧠 RAG & Agents Learning Lab
+# 🧠 AI Learning Lab
 
-An interactive educational app for learning **Retrieval-Augmented Generation (RAG)** and **AI Agents** from basics to advanced — built entirely in Python with Streamlit.
+An interactive educational app for learning **RAG**, **AI Agents**, **MCP (Model Context Protocol)**, and **A2A (Agent-to-Agent Protocol)** from basics to advanced — built entirely in Python with Streamlit.
 
 No boring slides. Learn by building.
 
@@ -136,6 +136,28 @@ Upload and parse: **PDF**, **DOCX** (Word), **VSDX** (Visio), **TXT**
 | **Orchestrator** | Decomposes complex tasks and delegates to workers |
 | **Debate** | Multiple agents argue perspectives, then synthesise |
 
+### MCP Track (Model Context Protocol)
+
+| Module | What You'll Learn |
+|--------|------------------|
+| 🔌 **MCP Basics** | What MCP is, why it matters, architecture overview |
+| 🏗️ **MCP Architecture** | Hosts, Clients, Servers, Transports — interactive handshake simulator |
+| 🧱 **MCP Primitives** | Resources, Tools, Prompts — connect to demo servers and interact |
+| 🛠️ **MCP Server Builder** | Build your own MCP server, add resources/tools/prompts, generate code |
+| 🎮 **MCP Playground** | Multi-server environment, chat simulation, live protocol log |
+| ❓ **MCP Help** | Comprehensive reference, MCP vs alternatives, further reading |
+
+### A2A Track (Agent-to-Agent Protocol)
+
+| Module | What You'll Learn |
+|--------|------------------|
+| 🤝 **A2A Basics** | What A2A is, how it complements MCP, architecture overview |
+| 🪪 **Agent Cards** | Agent discovery, card anatomy, build your own Agent Card |
+| 📋 **A2A Tasks** | Task lifecycle, messages, parts, artifacts — interactive demo |
+| 🌐 **A2A Collaboration** | Router, pipeline, parallel patterns — live multi-agent demos |
+| 🎮 **A2A Playground** | Full multi-agent environment with routing, pipelines, task inspector |
+| ❓ **A2A Help** | A2A vs MCP vs function calling, reference, further reading |
+
 ## Quick Start
 
 ```bash
@@ -185,7 +207,9 @@ RAG/
 │   ├── document_loader.py      # PDF / DOCX / VSDX / TXT parser
 │   ├── rag_pipeline.py         # Pipeline: reasoning, reranking, guardrails, context, tokens
 │   ├── tools.py                # Tool system: registry, 7 built-in tools, custom tool builder
-│   └── agent_loop.py           # Agent executor: ReAct, Plan-Execute, Reflection, Tool Choice
+│   ├── agent_loop.py           # Agent executor: ReAct, Plan-Execute, Reflection, Tool Choice
+│   ├── mcp_simulator.py        # MCP Host, Client, Server, Transport simulation
+│   └── a2a_simulator.py        # A2A Agent Cards, Tasks, Messages, Artifacts simulation
 ├── components/
 │   ├── sidebar.py              # Shared provider configuration UI
 │   └── viz.py                  # Plotly visualizations
@@ -204,7 +228,19 @@ RAG/
 │   ├── 12_🔄_Agent_Patterns.py
 │   ├── 13_🌐_Multi_Agent.py
 │   ├── 14_🎮_Agent_Playground.py
-│   └── 15_❓_Agent_Help.py
+│   ├── 15_❓_Agent_Help.py
+│   ├── 16_🔌_MCP_Basics.py
+│   ├── 17_🏗️_MCP_Architecture.py
+│   ├── 18_🧱_MCP_Primitives.py
+│   ├── 19_🛠️_MCP_Server_Builder.py
+│   ├── 20_🎮_MCP_Playground.py
+│   ├── 21_❓_MCP_Help.py
+│   ├── 22_🤝_A2A_Basics.py
+│   ├── 23_🪪_Agent_Cards.py
+│   ├── 24_📋_A2A_Tasks.py
+│   ├── 25_🌐_A2A_Collaboration.py
+│   ├── 26_🎮_A2A_Playground.py
+│   └── 27_❓_A2A_Help.py
 └── data/samples/               # Sample documents
 ```
 
@@ -220,6 +256,8 @@ RAG/
 - **Agents**: 4 patterns (ReAct, Plan-Execute, Reflection, Tool Choice)
 - **Agent Tools**: 7 built-in + custom tool builder
 - **Multi-Agent**: Router, Orchestrator, Debate patterns
+- **MCP**: Simulated Host/Client/Server, 3 demo servers, server builder, protocol log
+- **A2A**: Agent Cards, Task lifecycle, 3 demo agents, router/pipeline/parallel patterns
 - **Documents**: PDF, DOCX, VSDX, TXT
 - **Visualization**: Plotly
 - **Language**: 100% Python

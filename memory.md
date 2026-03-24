@@ -8,7 +8,7 @@
 
 ## What This Project Is
 
-An **interactive educational Streamlit app** that teaches **RAG** and **AI Agents** from basics to advanced. Instead of slides, users learn by building — every concept has an interactive demo. The app has two tracks: a **RAG track** (9 pages) culminating in a RAG Playground, and an **Agents track** (6 pages) culminating in an Agent Playground with tool use and multi-agent patterns.
+An **interactive educational Streamlit app** that teaches **RAG**, **AI Agents**, **MCP (Model Context Protocol)**, and **A2A (Agent-to-Agent Protocol)** from basics to advanced. Instead of slides, users learn by building — every concept has an interactive demo. The app has four tracks: a **RAG track** (9 pages), an **Agents track** (6 pages), an **MCP track** (6 pages), and an **A2A track** (6 pages) — each with its own playground.
 
 **100% Python. No JavaScript. No frontend framework.**
 
@@ -24,7 +24,7 @@ An **interactive educational Streamlit app** that teaches **RAG** and **AI Agent
 └──────────────┬───────────────────────────────────────────────┘
                │
     ┌──────────▼──────────┐
-    │    pages/ (15 pages) │
+    │    pages/ (27 pages) │
     │  Each page imports:   │
     │  - components/sidebar │
     │  - components/viz     │
@@ -32,7 +32,7 @@ An **interactive educational Streamlit app** that teaches **RAG** and **AI Agent
     └──────────┬───────────┘
                │
     ┌──────────▼──────────────────────────────────────┐
-    │                    core/ (13 modules)             │
+    │                    core/ (15 modules)             │
     │                                                   │
     │  config.py ──► llm_providers.py                   │
     │                embeddings.py                      │
@@ -46,6 +46,9 @@ An **interactive educational Streamlit app** that teaches **RAG** and **AI Agent
     │  rag_pipeline.py  (RAG orchestrator)              │
     │  tools.py         (tool system for agents)        │
     │  agent_loop.py    (agent executor — 4 patterns)   │
+    │                                                   │
+    │  mcp_simulator.py (MCP Host/Client/Server/Transport)│
+    │  a2a_simulator.py (A2A Agent Cards/Tasks/Registry)│
     └───────────────────────────────────────────────────┘
 ```
 
@@ -70,6 +73,18 @@ An **interactive educational Streamlit app** that teaches **RAG** and **AI Agent
 | 13 | Multi-Agent | `13_🌐_Multi_Agent.py` | Router, orchestrator, debate patterns — live router demo |
 | 14 | Agent Playground | `14_🎮_Agent_Playground.py` | Build your own agent, tool selection, RAG integration, chat |
 | 15 | Agent Help | `15_❓_Agent_Help.py` | Reference for all agent features, patterns, resources |
+| 16 | MCP Basics | `16_🔌_MCP_Basics.py` | What MCP is, architecture overview, quiz |
+| 17 | MCP Architecture | `17_🏗️_MCP_Architecture.py` | Hosts, clients, servers, transports, handshake simulator |
+| 18 | MCP Primitives | `18_🧱_MCP_Primitives.py` | Connect to demo servers, explore resources/tools/prompts |
+| 19 | MCP Server Builder | `19_🛠️_MCP_Server_Builder.py` | Build custom MCP server, add primitives, generate code |
+| 20 | MCP Playground | `20_🎮_MCP_Playground.py` | Multi-server host, chat simulation, protocol log |
+| 21 | MCP Help | `21_❓_MCP_Help.py` | Reference, comparisons, further reading |
+| 22 | A2A Basics | `22_🤝_A2A_Basics.py` | What A2A is, MCP vs A2A, quiz |
+| 23 | Agent Cards | `23_🪪_Agent_Cards.py` | Agent Card anatomy, discovery simulator, card builder |
+| 24 | A2A Tasks | `24_📋_A2A_Tasks.py` | Task lifecycle, messages, parts, artifacts — interactive |
+| 25 | A2A Collaboration | `25_🌐_A2A_Collaboration.py` | Router, pipeline, parallel patterns — live demos |
+| 26 | A2A Playground | `26_🎮_A2A_Playground.py` | Multi-agent environment, routing, pipelines, task inspector |
+| 27 | A2A Help | `27_❓_A2A_Help.py` | A2A vs MCP vs function calling, resources |
 
 ---
 
@@ -175,6 +190,25 @@ An **interactive educational Streamlit app** that teaches **RAG** and **AI Agent
   - **Tool Choice**: Pick single best tool, use it once, formulate answer
 - Prompt templates: `_REACT_SYSTEM`, `_PLAN_SYSTEM`, `_REFLECTION_SYSTEM`, `_TOOL_CHOICE_SYSTEM`
 
+### `core/mcp_simulator.py` (~340 lines) — MCP EDUCATIONAL SIMULATOR
+- **Primitives:** `MCPResource` (read-only data with URI), `MCPTool` (executable with JSON Schema + handler), `MCPPrompt` (template with arguments)
+- **Transport:** `TransportType` enum (STDIO, SSE), `MCPMessage` (JSON-RPC 2.0), `SimulatedTransport` (message log)
+- **Server:** `MCPServer` — registers resources/tools/prompts, handles JSON-RPC requests (`initialize`, `resources/list`, `resources/read`, `tools/list`, `tools/call`, `prompts/list`, `prompts/get`), maintains request log
+- **Client:** `MCPClient` — connects to server, lists/reads resources, lists/calls tools, lists/gets prompts
+- **Host:** `MCPHost` — manages multiple clients, aggregates capabilities across servers
+- **Demo Servers (3):** `create_weather_server` (weather data + alerts), `create_database_server` (SQL queries on fake users/orders), `create_filesystem_server` (file read/list)
+- `DEMO_SERVERS` dict with factory functions, descriptions, icons
+
+### `core/a2a_simulator.py` (~340 lines) — A2A EDUCATIONAL SIMULATOR
+- **Agent Card:** `AgentSkill` (id, name, tags, examples), `AgentCard` (name, description, url, skills, capabilities, input/output modes) — serializes to JSON
+- **Task Lifecycle:** `TaskState` enum (submitted, working, input-required, completed, failed, canceled), `Task` (id, session_id, state, messages, artifacts, history) — has `transition()`, `add_message()`, `add_artifact()`
+- **Messages:** `TextPart`, `FilePart`, `DataPart`, `Message` (role, parts, metadata)
+- **Artifacts:** `Artifact` (name, description, parts, index)
+- **Agent:** `A2AAgent` — wraps AgentCard + handler function, `send_task()`, `get_task()`, `cancel_task()`
+- **Registry:** `AgentRegistry` — register/discover/get_agent/route_task (keyword-based routing)
+- **Demo Agents (3):** `_math_handler` (arithmetic), `_writer_handler` (email/summary), `_research_handler` (research reports)
+- `create_demo_agents()`, `create_demo_registry()`
+
 ---
 
 ## Components
@@ -240,11 +274,11 @@ python-docx>=1.0.0
 
 | Area | Files | Lines |
 |------|-------|-------|
-| `core/` | 13 .py | ~3,800 |
-| `pages/` | 15 .py | ~6,000 |
+| `core/` | 15 .py | ~4,500 |
+| `pages/` | 27 .py | ~10,000 |
 | `components/` | 2 .py | ~450 |
-| `app.py` | 1 | ~290 |
-| **Total** | **31 .py** | **~10,500** |
+| `app.py` | 1 | ~380 |
+| **Total** | **45 .py** | **~15,300** |
 
 ---
 
@@ -331,6 +365,63 @@ User types question in Agent Playground chat
 
 ---
 
+## MCP Data Flow
+
+```
+User interacts in MCP Playground chat
+        │
+        ▼
+[MCPHost] ── manages multiple MCPClients
+        │
+        ▼
+[Keyword matching] ── analyze user query against tool/resource names
+        │
+        ▼
+[MCPClient.call_tool()] ── JSON-RPC: tools/call → MCPServer
+   or                                              │
+[MCPClient.read_resource()] ── JSON-RPC: resources/read → MCPServer
+        │                                          │
+        ▼                                          ▼
+[MCPServer._dispatch()] ── routes to handler
+        │
+        ▼
+[Tool.execute()] or [Resource.read()] ── returns result
+        │
+        ▼
+Protocol log records all JSON-RPC messages exchanged
+```
+
+---
+
+## A2A Data Flow
+
+```
+User sends message in A2A Playground
+        │
+        ▼
+[Mode selection] ── router / direct / pipeline
+        │
+        ├─ router ──► AgentRegistry.route_task(message)
+        │              → keyword matching against agent skills
+        │              → best_agent.send_task(message)
+        │
+        ├─ direct ──► selected_agent.send_task(message)
+        │
+        └─ pipeline ── for each agent in sequence:
+                        agent.send_task(current_input)
+                        current_input = agent output
+        │
+        ▼
+[A2AAgent.send_task()] ── creates Task, transitions to WORKING
+        │                  calls handler function
+        │                  handler adds messages + artifacts
+        │                  transitions to COMPLETED
+        ▼
+Return task with messages, artifacts, state history
+```
+
+---
+
 ## Known Issues / Future Ideas
 
 - `streamlit-flow-component` in requirements but unused (Playground uses custom HTML)
@@ -339,3 +430,6 @@ User types question in Agent Playground chat
 - No user auth or multi-tenant support (single-user local app)
 - Agent tools are simulated (web_search returns canned responses) — could add real API calls
 - Could add agent evaluation page (similar to RAG evaluation)
+- MCP servers are simulated in-process — could add real stdio/SSE transport
+- A2A agents use keyword routing — could add LLM-based intent routing
+- MCP and A2A demo servers/agents return canned data — could integrate real APIs
