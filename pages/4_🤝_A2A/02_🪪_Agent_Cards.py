@@ -201,6 +201,6 @@ Client Agent                          Registry / Network
 st.divider()
 cols = st.columns(3)
 with cols[0]:
-    st.page_link("pages/22_🤝_A2A_Basics.py", label="← A2A Basics", icon="🤝")
+    st.page_link("pages/4_🤝_A2A/01_🤝_A2A_Basics.py", label="← A2A Basics", icon="🤝")
 with cols[2]:
-    st.page_link("pages/24_📋_A2A_Tasks.py", label="A2A Tasks →", icon="📋")
+    st.page_link("pages/4_🤝_A2A/03_📋_A2A_Tasks.py", label="A2A Tasks →", icon="📋")

@@ -193,6 +193,6 @@ if q3:
 st.divider()
 cols = st.columns(3)
 with cols[0]:
-    st.page_link("pages/15_❓_Agent_Help.py", label="← Agent Help", icon="❓")
+    st.page_link("pages/2_🤖_Agents/06_❓_Agent_Help.py", label="← Agent Help", icon="❓")
 with cols[2]:
-    st.page_link("pages/17_🏗️_MCP_Architecture.py", label="MCP Architecture →", icon="🏗️")
+    st.page_link("pages/3_🔌_MCP/02_🏗️_MCP_Architecture.py", label="MCP Architecture →", icon="🏗️")

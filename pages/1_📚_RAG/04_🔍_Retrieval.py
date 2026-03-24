@@ -218,6 +218,6 @@ if "ret_results" in st.session_state:
 st.markdown("---")
 col1, col2 = st.columns([1, 1])
 with col1:
-    st.page_link("pages/3_📦_Vector_Stores.py", label="← Vector Stores", icon="📦")
+    st.page_link("pages/1_📚_RAG/03_📦_Vector_Stores.py", label="← Vector Stores", icon="📦")
 with col2:
-    st.page_link("pages/5_🤖_Generation.py", label="Next: Generation →", icon="🤖")
+    st.page_link("pages/1_📚_RAG/05_🤖_Generation.py", label="Next: Generation →", icon="🤖")

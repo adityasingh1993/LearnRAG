@@ -377,6 +377,6 @@ for category, links in resources.items():
 st.markdown("---")
 col1, col2 = st.columns([1, 1])
 with col1:
-    st.page_link("pages/8_🎮_Playground.py", label="← Playground", icon="🎮")
+    st.page_link("pages/1_📚_RAG/08_🎮_Playground.py", label="← Playground", icon="🎮")
 with col2:
-    st.page_link("pages/10_🤖_Agent_Basics.py", label="Next: AI Agents →", icon="🤖")
+    st.page_link("pages/2_🤖_Agents/01_🤖_Agent_Basics.py", label="Next: AI Agents →", icon="🤖")

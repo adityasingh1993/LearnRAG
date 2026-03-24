@@ -753,6 +753,6 @@ elif section == "A/B Strategy Comparison":
 st.markdown("---")
 col1, col2 = st.columns([1, 1])
 with col1:
-    st.page_link("pages/6_🔬_Full_Pipeline.py", label="← Full Pipeline", icon="🔬")
+    st.page_link("pages/1_📚_RAG/06_🔬_Full_Pipeline.py", label="← Full Pipeline", icon="🔬")
 with col2:
-    st.page_link("pages/8_🎮_Playground.py", label="Next: Playground →", icon="🎮")
+    st.page_link("pages/1_📚_RAG/08_🎮_Playground.py", label="Next: Playground →", icon="🎮")

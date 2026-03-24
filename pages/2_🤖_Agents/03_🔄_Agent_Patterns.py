@@ -346,6 +346,6 @@ if st.button("▶ Run Agent", key="run_agent", type="primary"):
 st.markdown("---")
 col1, col2 = st.columns([1, 1])
 with col1:
-    st.page_link("pages/11_🔧_Tools.py", label="← Tools & Function Calling", icon="🔧")
+    st.page_link("pages/2_🤖_Agents/02_🔧_Tools.py", label="← Tools & Function Calling", icon="🔧")
 with col2:
-    st.page_link("pages/13_🌐_Multi_Agent.py", label="Next: Multi-Agent Systems →", icon="🌐")
+    st.page_link("pages/2_🤖_Agents/04_🌐_Multi_Agent.py", label="Next: Multi-Agent Systems →", icon="🌐")

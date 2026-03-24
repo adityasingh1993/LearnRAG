@@ -212,6 +212,6 @@ if "vs_instance" in st.session_state:
 st.markdown("---")
 col1, col2 = st.columns([1, 1])
 with col1:
-    st.page_link("pages/2_🧩_Embeddings.py", label="← Embeddings", icon="🧩")
+    st.page_link("pages/1_📚_RAG/02_🧩_Embeddings.py", label="← Embeddings", icon="🧩")
 with col2:
-    st.page_link("pages/4_🔍_Retrieval.py", label="Next: Retrieval →", icon="🔍")
+    st.page_link("pages/1_📚_RAG/04_🔍_Retrieval.py", label="Next: Retrieval →", icon="🔍")

@@ -172,6 +172,6 @@ with st.expander("📚 The Technical Details", expanded=False):
 st.markdown("---")
 col1, col2 = st.columns([1, 1])
 with col1:
-    st.page_link("pages/1_📖_Learn_Basics.py", label="← Learn Basics", icon="📖")
+    st.page_link("pages/1_📚_RAG/01_📖_Learn_Basics.py", label="← Learn Basics", icon="📖")
 with col2:
-    st.page_link("pages/3_📦_Vector_Stores.py", label="Next: Vector Stores →", icon="📦")
+    st.page_link("pages/1_📚_RAG/03_📦_Vector_Stores.py", label="Next: Vector Stores →", icon="📦")

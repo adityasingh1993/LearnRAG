@@ -356,6 +356,6 @@ if st.session_state.get("ap_agent_built") and "agent_executor" in st.session_sta
 st.markdown("---")
 col1, col2 = st.columns([1, 1])
 with col1:
-    st.page_link("pages/13_🌐_Multi_Agent.py", label="← Multi-Agent Systems", icon="🌐")
+    st.page_link("pages/2_🤖_Agents/04_🌐_Multi_Agent.py", label="← Multi-Agent Systems", icon="🌐")
 with col2:
-    st.page_link("pages/15_❓_Agent_Help.py", label="Next: Agent Help →", icon="❓")
+    st.page_link("pages/2_🤖_Agents/06_❓_Agent_Help.py", label="Next: Agent Help →", icon="❓")

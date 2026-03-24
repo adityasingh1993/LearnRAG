@@ -184,6 +184,6 @@ if st.button("🤖 Retrieve & Generate", type="primary") and question:
 st.markdown("---")
 col1, col2 = st.columns([1, 1])
 with col1:
-    st.page_link("pages/4_🔍_Retrieval.py", label="← Retrieval", icon="🔍")
+    st.page_link("pages/1_📚_RAG/04_🔍_Retrieval.py", label="← Retrieval", icon="🔍")
 with col2:
-    st.page_link("pages/6_🔬_Full_Pipeline.py", label="Next: Full Pipeline →", icon="🔬")
+    st.page_link("pages/1_📚_RAG/06_🔬_Full_Pipeline.py", label="Next: Full Pipeline →", icon="🔬")

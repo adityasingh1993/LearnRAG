@@ -292,6 +292,6 @@ with tab_log:
 st.divider()
 cols = st.columns(3)
 with cols[0]:
-    st.page_link("pages/19_🛠️_MCP_Server_Builder.py", label="← Server Builder", icon="🛠️")
+    st.page_link("pages/3_🔌_MCP/04_🛠️_MCP_Server_Builder.py", label="← Server Builder", icon="🛠️")
 with cols[2]:
-    st.page_link("pages/21_❓_MCP_Help.py", label="MCP Help →", icon="❓")
+    st.page_link("pages/3_🔌_MCP/06_❓_MCP_Help.py", label="MCP Help →", icon="❓")
