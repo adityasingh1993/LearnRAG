@@ -78,16 +78,16 @@ st.markdown("""
 st.markdown("""
 <div class="main-header">
     <h1>🧠 AI Learning Lab</h1>
-    <p>Master RAG, Agents, MCP & A2A — from concepts to building your own systems</p>
+    <p>Master RAG, Agents, MCP, A2A, Embeddings & Prompting — from concepts to building your own systems</p>
 </div>
 """, unsafe_allow_html=True)
 
 # ── Stats ───────────────────────────────────────────────────────────────
 c1, c2, c3, c4 = st.columns(4)
 with c1:
-    st.markdown('<div class="stat-card"><div class="number">27</div><div class="label">Interactive Modules</div></div>', unsafe_allow_html=True)
+    st.markdown('<div class="stat-card"><div class="number">44</div><div class="label">Interactive Modules</div></div>', unsafe_allow_html=True)
 with c2:
-    st.markdown('<div class="stat-card"><div class="number">4</div><div class="label">Learning Tracks</div></div>', unsafe_allow_html=True)
+    st.markdown('<div class="stat-card"><div class="number">6</div><div class="label">Learning Tracks</div></div>', unsafe_allow_html=True)
 with c3:
     st.markdown('<div class="stat-card"><div class="number">3</div><div class="label">LLM Providers</div></div>', unsafe_allow_html=True)
 with c4:
@@ -128,6 +128,23 @@ modules = [
     ("🌐", "A2A Collaboration", "Router, pipeline, and parallel multi-agent patterns.", "advanced"),
     ("🎮", "A2A Playground", "Full multi-agent environment with routing and pipelines.", "advanced"),
     ("❓", "A2A Help", "A2A reference, comparisons, and further reading.", "advanced"),
+    ("📊", "Bag of Words", "The simplest text-to-numbers technique. Sparse vectors.", "beginner"),
+    ("📈", "TF-IDF", "Term frequency meets inverse document frequency.", "beginner"),
+    ("🧠", "Word2Vec", "Dense vectors from Google's word2vec-google-news-300.", "intermediate"),
+    ("🌐", "GloVe", "Global vectors for word representation from Stanford.", "intermediate"),
+    ("🤖", "Transformers", "Contextual embeddings with Sentence-BERT.", "intermediate"),
+    ("🔬", "Grand Comparison", "BoW vs TF-IDF vs Transformers side by side.", "advanced"),
+    ("🔍", "Semantic Search", "Keyword search vs semantic search showdown.", "advanced"),
+    ("🎮", "Guess Embedding", "Mystery technique game — identify the algorithm.", "advanced"),
+    ("🌌", "3D Universe", "Navigate word embeddings in 3D WebGL space.", "advanced"),
+    ("🖼️", "Multimodal CLIP", "Image + text in a shared embedding space.", "advanced"),
+    ("📐", "Vector Similarity", "Euclidean vs Cosine vs Dot Product — visual proof.", "beginner"),
+    ("📚", "Embedding Resources", "Papers, MTEB leaderboard, and further reading.", "beginner"),
+    ("📖", "Prompting Tutorial", "8 techniques from Zero-Shot to Tree-of-Thought.", "beginner"),
+    ("🏟️", "Prompt Arena", "Compare two prompting techniques side by side.", "intermediate"),
+    ("🔍", "Hallucination Detector", "Claim-by-claim analysis of LLM responses.", "intermediate"),
+    ("🛠️", "Prompt Workbench", "Build custom prompts with template variables.", "advanced"),
+    ("📊", "Prompt Analytics", "Track performance and history across sessions.", "advanced"),
 ]
 
 rows = [modules[i:i+4] for i in range(0, len(modules), 4)]

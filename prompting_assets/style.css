@@ -1,0 +1,122 @@
+/* PromptCraft — Custom Theme */
+
+/* ── Base ──────────────────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+[data-testid="stAppViewContainer"] {
+    font-family: 'Inter', sans-serif;
+}
+
+/* ── Metric Cards ──────────────────────────────────────── */
+.metric-card {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    border: 1px solid rgba(124, 77, 255, 0.2);
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.metric-card:hover {
+    transform: translateY(-2px);
+    border-color: rgba(124, 77, 255, 0.5);
+}
+
+/* ── Technique Cards ───────────────────────────────────── */
+.technique-card {
+    background: linear-gradient(135deg, #0f0f1a 0%, #1a1a2e 100%);
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    transition: all 0.3s ease;
+    cursor: default;
+    min-height: 140px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.technique-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(124, 77, 255, 0.15);
+}
+
+/* ── Response Panels ───────────────────────────────────── */
+.response-panel {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid #333;
+    border-radius: 12px;
+    padding: 20px;
+    margin: 8px 0;
+}
+
+/* ── Score Animation ───────────────────────────────────── */
+@keyframes scoreReveal {
+    0% { opacity: 0; transform: scale(0.5); }
+    50% { transform: scale(1.1); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+.score-reveal {
+    animation: scoreReveal 0.6s ease-out forwards;
+}
+
+/* ── Progress Bar ──────────────────────────────────────── */
+.progress-bar {
+    height: 8px;
+    background: #1a1a2e;
+    border-radius: 4px;
+    overflow: hidden;
+    margin: 8px 0;
+}
+
+.progress-fill {
+    height: 100%;
+    border-radius: 4px;
+    transition: width 0.5s ease;
+    background: linear-gradient(90deg, #7C4DFF, #00E676);
+}
+
+/* ── Verdict Colors ────────────────────────────────────── */
+.verdict-supported { color: #00E676; }
+.verdict-uncertain { color: #FFD600; }
+.verdict-unsupported { color: #FF1744; }
+
+/* ── Streamlit Overrides ───────────────────────────────── */
+.stTabs [data-baseweb="tab-list"] {
+    gap: 8px;
+}
+
+.stTabs [data-baseweb="tab"] {
+    border-radius: 8px;
+    padding: 8px 20px;
+}
+
+/* Button styling */
+.stButton > button {
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.stButton > button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(124, 77, 255, 0.3);
+}
+
+/* Expander styling */
+.streamlit-expanderHeader {
+    font-weight: 600;
+    border-radius: 8px;
+}
+
+/* Sidebar styling */
+[data-testid="stSidebar"] {
+    background: linear-gradient(180deg, #0a0a14 0%, #1a1a2e 100%);
+}
+
+/* Divider */
+hr {
+    border-color: rgba(124, 77, 255, 0.15);
+}

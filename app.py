@@ -54,12 +54,37 @@ a2a_pages = [
     st.Page("pages/27_❓_A2A_Help.py", title="A2A Help", icon="❓"),
 ]
 
+embedding_pages = [
+    st.Page("pages/28_📊_Bag_of_Words.py", title="Bag of Words", icon="📊"),
+    st.Page("pages/29_📈_TF_IDF.py", title="TF-IDF", icon="📈"),
+    st.Page("pages/30_🧠_Word2Vec.py", title="Word2Vec", icon="🧠"),
+    st.Page("pages/31_🌐_GloVe.py", title="GloVe", icon="🌐"),
+    st.Page("pages/32_🤖_Transformers.py", title="Transformers", icon="🤖"),
+    st.Page("pages/33_🔬_Grand_Comparison.py", title="Grand Comparison", icon="🔬"),
+    st.Page("pages/34_🔍_Semantic_Search.py", title="Semantic Search", icon="🔍"),
+    st.Page("pages/35_🎮_Guess_Embedding.py", title="Guess the Embedding", icon="🎮"),
+    st.Page("pages/36_🌌_3D_Universe.py", title="3D Universe", icon="🌌"),
+    st.Page("pages/37_🖼️_Multimodal.py", title="Multimodal (CLIP)", icon="🖼️"),
+    st.Page("pages/38_📐_Vector_Similarity.py", title="Vector Similarity", icon="📐"),
+    st.Page("pages/39_📚_Resources.py", title="Embedding Resources", icon="📚"),
+]
+
+prompting_pages = [
+    st.Page("pages/40_📖_Tutorial.py", title="Prompting Tutorial", icon="📖"),
+    st.Page("pages/41_🏟️_Prompt_Arena.py", title="Prompt Arena", icon="🏟️"),
+    st.Page("pages/42_🔍_Hallucination_Detector.py", title="Hallucination Detector", icon="🔍"),
+    st.Page("pages/43_🛠️_Prompt_Workbench.py", title="Prompt Workbench", icon="🛠️"),
+    st.Page("pages/44_📊_Analytics.py", title="Prompt Analytics", icon="📊"),
+]
+
 pg = st.navigation({
     "": [home],
     "RAG": rag_pages,
     "Agents": agent_pages,
     "MCP": mcp_pages,
     "A2A": a2a_pages,
+    "Embeddings": embedding_pages,
+    "Prompting": prompting_pages,
 })
 
 pg.run()
