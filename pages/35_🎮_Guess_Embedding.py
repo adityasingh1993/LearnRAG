@@ -3,12 +3,14 @@
 An interactive mini-game to test user's understanding of different embeddings.
 """
 import streamlit as st
+import random
 from embedding_utils.common import inject_custom_css, page_header
 from embedding_utils.embeddings import (
     get_bow_embedding, get_tfidf_embedding, get_word2vec_embeddings,
     get_glove_embeddings, get_fasttext_embeddings, get_transformer_embedding
 )
 from embedding_utils.visualization import plot_similarity_heatmap
+from sklearn.metrics.pairwise import cosine_similarity
 
 inject_custom_css()
 
@@ -55,7 +57,7 @@ def get_similarities(technique, items):
     else:
         matrix = np.eye(len(items))
         
-    from sklearn.metrics.pairwise import cosine_similarity
+    
     return cosine_similarity(matrix)
 
 with st.spinner("Generating mystery matrix (might take a moment to load models...)"):

@@ -11,11 +11,12 @@ from prompting_core.evaluator import evaluate_quality
 from prompting_core.scenarios import get_recommended_scenario
 from prompting_utils.ui_components import (
     inject_custom_css, page_header, metric_card, score_badge,
-    technique_card, response_panel, api_key_warning,
+    technique_card, response_panel, api_key_warning, render_prompting_settings,
 )
 from prompting_utils.scoring import get_score_color, improvement_percentage, format_latency
 
 inject_custom_css()
+render_prompting_settings()
 
 page_header(
     title="Guided Tutorial",

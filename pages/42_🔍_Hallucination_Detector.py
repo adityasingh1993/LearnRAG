@@ -11,11 +11,12 @@ from prompting_core.scenarios import ALL_SCENARIOS
 from prompting_core import config
 from prompting_utils.ui_components import (
     inject_custom_css, page_header, claim_card, score_badge,
-    metric_card, api_key_warning,
+    metric_card, api_key_warning, render_prompting_settings,
 )
 from prompting_utils.scoring import get_score_color
 
 inject_custom_css()
+render_prompting_settings()
 
 page_header(
     title="Hallucination Detector",

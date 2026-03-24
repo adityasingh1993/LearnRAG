@@ -15,12 +15,24 @@ from prompting_core import config
 load_dotenv()
 
 
+def _get_api_key() -> str:
+    """Resolve OpenRouter API key from session state or environment."""
+    try:
+        import streamlit as st
+        key = st.session_state.get("prompting_or_key", "")
+        if key:
+            return key
+    except Exception:
+        pass
+    return os.getenv("OPENROUTER_API_KEY", "")
+
+
 def _get_client() -> OpenAI:
     """Get or create an OpenRouter client."""
-    api_key = os.getenv("OPENROUTER_API_KEY", "")
+    api_key = _get_api_key()
     if not api_key:
         raise ValueError(
-            "OPENROUTER_API_KEY not found. Set it in your .env file or environment variables."
+            "OPENROUTER_API_KEY not found. Set it in your .env file or enter it in the sidebar."
         )
     return OpenAI(
         base_url="https://openrouter.ai/api/v1",
@@ -48,8 +60,16 @@ def generate(
         dict with keys: response, tokens_used, latency_ms, model
     """
     client = _get_client()
-    model_name = model or config.MODEL_NAME
-    temp = temperature if temperature is not None else config.DEFAULT_TEMPERATURE
+
+    try:
+        import streamlit as st
+        ss_model = st.session_state.get("prompting_model")
+        ss_temp = st.session_state.get("prompting_temperature")
+    except Exception:
+        ss_model, ss_temp = None, None
+
+    model_name = model or ss_model or config.MODEL_NAME
+    temp = temperature if temperature is not None else (ss_temp if ss_temp is not None else config.DEFAULT_TEMPERATURE)
     p = top_p if top_p is not None else getattr(config, "DEFAULT_TOP_P", 1.0)
     k = top_k if top_k is not None else getattr(config, "DEFAULT_TOP_K", None)
     max_tok = max_tokens or config.MAX_OUTPUT_TOKENS
@@ -125,6 +145,6 @@ def generate_multiple(
 
 
 def is_api_key_configured() -> bool:
-    """Check if the API key is configured."""
-    api_key = os.getenv("OPENROUTER_API_KEY", "")
+    """Check if the API key is configured (session state or env)."""
+    api_key = _get_api_key()
     return bool(api_key) and api_key != "your_openrouter_api_key_here"

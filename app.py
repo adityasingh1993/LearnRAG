@@ -13,7 +13,7 @@ st.set_page_config(
 )
 
 # ── Sidebar Navigation with Module Sections ────────────────────────────
-home = st.Page("home.py", title="Home", icon="🏠", default=True)
+home = st.Page("pages/home.py", title="Home", icon="🏠", default=True)
 
 rag_pages = [
     st.Page("pages/1_📖_Learn_Basics.py", title="Learn Basics", icon="📖"),
@@ -77,14 +77,17 @@ prompting_pages = [
     st.Page("pages/44_📊_Analytics.py", title="Prompt Analytics", icon="📊"),
 ]
 
-pg = st.navigation({
-    "": [home],
-    "Prompting": prompting_pages,
-    "Embeddings": embedding_pages,
-    "RAG": rag_pages,
-    "Agents": agent_pages,
-    "MCP": mcp_pages,
-    "A2A": a2a_pages,
-})
+pg = st.navigation(
+    {
+        "": [home],
+        "PromptCraft": prompting_pages,
+        "Embeddings": embedding_pages,
+        "RAG": rag_pages,
+        "Agents": agent_pages,
+        "MCP": mcp_pages,
+        "A2A": a2a_pages,
+    },
+    expanded=True,
+)
 
 pg.run()

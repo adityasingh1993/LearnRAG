@@ -11,7 +11,7 @@ from prompting_core.evaluator import evaluate_quality, evaluate_hallucination
 from prompting_core.scenarios import ALL_SCENARIOS
 from prompting_utils.ui_components import (
     inject_custom_css, page_header, comparison_header, score_badge,
-    response_panel, metric_card, api_key_warning,
+    response_panel, metric_card, api_key_warning, render_prompting_settings,
 )
 from prompting_utils.scoring import (
     get_score_color, get_score_label, format_latency,
@@ -19,6 +19,7 @@ from prompting_utils.scoring import (
 )
 
 inject_custom_css()
+render_prompting_settings()
 
 page_header(
     title="Prompt Arena",

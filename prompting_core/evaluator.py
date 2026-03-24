@@ -6,7 +6,7 @@ and response quality scoring.
 
 import json
 import re
-from core import llm_client
+from prompting_core import llm_client
 from prompting_core import config
 
 

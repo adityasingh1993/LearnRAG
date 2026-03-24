@@ -18,7 +18,8 @@ from embedding_utils.visualization import (
 )
 from sklearn.metrics.pairwise import cosine_similarity
 import plotly.graph_objects as go
-
+import pandas as pd
+import numpy as np
 inject_custom_css()
 
 page_header(

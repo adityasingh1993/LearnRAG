@@ -12,7 +12,9 @@ from embedding_utils.embeddings import (
     get_tfidf_embedding
 )
 from embedding_utils.visualization import reduce_dimensions, plot_embeddings_3d
-
+import numpy as np
+import pandas as pd
+from sklearn.metrics.pairwise import cosine_similarity
 inject_custom_css()
 
 page_header(

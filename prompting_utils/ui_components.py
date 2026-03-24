@@ -142,6 +142,54 @@ def response_panel(response_text: str, label: str = "Response", metrics: dict = 
                 st.metric(label=key, value=value)
 
 
+def render_prompting_settings():
+    """Render model settings for Prompting pages in the sidebar."""
+    import os
+    from prompting_core import config
+
+    with st.sidebar:
+        st.markdown("### Prompting Settings")
+
+        saved_key = st.session_state.get("prompting_or_key", "") or os.getenv("OPENROUTER_API_KEY", "")
+        if "prompting_api_key_input" not in st.session_state:
+            st.session_state["prompting_api_key_input"] = saved_key
+
+        api_key = st.text_input(
+            "OpenRouter API Key",
+            type="password",
+            key="prompting_api_key_input",
+            help="Get a key at [openrouter.ai/keys](https://openrouter.ai/keys)",
+        )
+        st.session_state["prompting_or_key"] = api_key
+
+        if api_key:
+            os.environ["OPENROUTER_API_KEY"] = api_key
+
+        model = st.selectbox(
+            "Model",
+            options=config.AVAILABLE_MODELS,
+            index=config.AVAILABLE_MODELS.index(
+                st.session_state.get("prompting_model", config.MODEL_NAME)
+            ) if st.session_state.get("prompting_model", config.MODEL_NAME) in config.AVAILABLE_MODELS else 0,
+            key="prompting_model_select",
+        )
+        st.session_state["prompting_model"] = model
+
+        temperature = st.slider(
+            "Temperature",
+            min_value=0.0,
+            max_value=1.5,
+            value=st.session_state.get("prompting_temperature", config.DEFAULT_TEMPERATURE),
+            step=0.1,
+            key="prompting_temp_slider",
+        )
+        st.session_state["prompting_temperature"] = temperature
+
+        status = "✅ Connected" if api_key else "❌ No API Key"
+        st.caption(f"Status: {status}")
+        st.divider()
+
+
 def api_key_warning():
     """Show a warning if API key is not configured."""
     st.warning(

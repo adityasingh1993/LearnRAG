@@ -5,7 +5,7 @@ Demonstrates how embeddings power modern search engines and RAG applications.
 import streamlit as st
 from embedding_utils.common import inject_custom_css, page_header
 from embedding_utils.embeddings import get_tfidf_embedding, get_transformer_embedding
-
+from sklearn.metrics.pairwise import cosine_similarity
 inject_custom_css()
 
 page_header(

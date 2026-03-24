@@ -11,7 +11,7 @@ from embedding_utils.visualization import (
     plot_embeddings_2d,
     reduce_dimensions,
 )
-
+import pandas as pd
 inject_custom_css()
 
 page_header(

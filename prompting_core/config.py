@@ -12,6 +12,22 @@ HIGH_TEMPERATURE = 1.0         # For creative tasks
 MAX_OUTPUT_TOKENS = 2048
 SELF_CONSISTENCY_RUNS = 3      # Number of passes for self-consistency
 
+AVAILABLE_MODELS = [
+    "google/gemini-2.0-flash-001",
+    "google/gemini-2.5-flash-preview",
+    "openai/gpt-4o-mini",
+    "openai/gpt-4o",
+    "openai/gpt-4.1-mini",
+    "openai/gpt-4.1-nano",
+    "anthropic/claude-3.5-sonnet",
+    "anthropic/claude-3-haiku",
+    "meta-llama/llama-3.1-8b-instruct:free",
+    "meta-llama/llama-4-scout:free",
+    "mistralai/mistral-7b-instruct:free",
+    "deepseek/deepseek-chat-v3-0324:free",
+    "qwen/qwen-2.5-72b-instruct:free",
+]
+
 # ─── Evaluation Settings ────────────────────────────────────────
 JUDGE_MODEL = "google/gemini-2.0-flash-001"
 JUDGE_TEMPERATURE = 0.1        # Low temp for consistent evaluation

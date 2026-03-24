@@ -232,4 +232,4 @@ cols = st.columns(3)
 with cols[0]:
     st.page_link("pages/26_🎮_A2A_Playground.py", label="← A2A Playground", icon="🎮")
 with cols[2]:
-    st.page_link("home.py", label="🏠 Home", icon="🏠")
+    st.page_link("pages/home.py", label="🏠 Home", icon="🏠")

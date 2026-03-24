@@ -9,10 +9,11 @@ import plotly.graph_objects as go
 import plotly.express as px
 from prompting_core import config
 from prompting_core.prompt_templates import ALL_TEMPLATES
-from prompting_utils.ui_components import inject_custom_css, page_header, metric_card
+from prompting_utils.ui_components import inject_custom_css, page_header, metric_card, render_prompting_settings
 from prompting_utils.scoring import get_score_color
 
 inject_custom_css()
+render_prompting_settings()
 
 page_header(
     title="Analytics Dashboard",
