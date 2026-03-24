@@ -157,6 +157,6 @@ The **protocol** ensures they can communicate.
 st.divider()
 cols = st.columns(3)
 with cols[0]:
-    st.page_link("pages/3_🔌_MCP/02_🏗️_MCP_Architecture.py", label="← MCP Architecture", icon="🏗️")
+    st.page_link("pages/17_🏗️_MCP_Architecture.py", label="← MCP Architecture", icon="🏗️")
 with cols[2]:
-    st.page_link("pages/3_🔌_MCP/04_🛠️_MCP_Server_Builder.py", label="MCP Server Builder →", icon="🛠️")
+    st.page_link("pages/19_🛠️_MCP_Server_Builder.py", label="MCP Server Builder →", icon="🛠️")

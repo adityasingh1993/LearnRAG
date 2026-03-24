@@ -293,6 +293,6 @@ else:
 st.divider()
 cols = st.columns(3)
 with cols[0]:
-    st.page_link("pages/4_🤝_A2A/04_🌐_A2A_Collaboration.py", label="← Collaboration", icon="🌐")
+    st.page_link("pages/25_🌐_A2A_Collaboration.py", label="← Collaboration", icon="🌐")
 with cols[2]:
-    st.page_link("pages/4_🤝_A2A/06_❓_A2A_Help.py", label="A2A Help →", icon="❓")
+    st.page_link("pages/27_❓_A2A_Help.py", label="A2A Help →", icon="❓")

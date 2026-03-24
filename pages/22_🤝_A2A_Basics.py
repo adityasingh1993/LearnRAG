@@ -226,6 +226,6 @@ if q3:
 st.divider()
 cols = st.columns(3)
 with cols[0]:
-    st.page_link("pages/3_🔌_MCP/06_❓_MCP_Help.py", label="← MCP Help", icon="❓")
+    st.page_link("pages/21_❓_MCP_Help.py", label="← MCP Help", icon="❓")
 with cols[2]:
-    st.page_link("pages/4_🤝_A2A/02_🪪_Agent_Cards.py", label="Agent Cards →", icon="🪪")
+    st.page_link("pages/23_🪪_Agent_Cards.py", label="Agent Cards →", icon="🪪")

@@ -217,6 +217,6 @@ st.markdown("""
 st.divider()
 cols = st.columns(3)
 with cols[0]:
-    st.page_link("pages/3_🔌_MCP/05_🎮_MCP_Playground.py", label="← MCP Playground", icon="🎮")
+    st.page_link("pages/20_🎮_MCP_Playground.py", label="← MCP Playground", icon="🎮")
 with cols[2]:
-    st.page_link("pages/4_🤝_A2A/01_🤝_A2A_Basics.py", label="A2A Basics →", icon="🤝")
+    st.page_link("pages/22_🤝_A2A_Basics.py", label="A2A Basics →", icon="🤝")

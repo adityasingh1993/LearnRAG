@@ -269,6 +269,6 @@ if "fp_pipeline" in st.session_state:
 st.markdown("---")
 col1, col2 = st.columns([1, 1])
 with col1:
-    st.page_link("pages/1_📚_RAG/05_🤖_Generation.py", label="← Generation", icon="🤖")
+    st.page_link("pages/5_🤖_Generation.py", label="← Generation", icon="🤖")
 with col2:
-    st.page_link("pages/1_📚_RAG/07_📊_Evaluation.py", label="Next: Evaluation →", icon="📊")
+    st.page_link("pages/7_📊_Evaluation.py", label="Next: Evaluation →", icon="📊")

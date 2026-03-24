@@ -265,6 +265,6 @@ st.info(
 st.markdown("---")
 col1, col2 = st.columns([1, 1])
 with col1:
-    st.page_link("pages/2_🤖_Agents/01_🤖_Agent_Basics.py", label="← Agent Basics", icon="🤖")
+    st.page_link("pages/10_🤖_Agent_Basics.py", label="← Agent Basics", icon="🤖")
 with col2:
-    st.page_link("pages/2_🤖_Agents/03_🔄_Agent_Patterns.py", label="Next: Agent Patterns →", icon="🔄")
+    st.page_link("pages/12_🔄_Agent_Patterns.py", label="Next: Agent Patterns →", icon="🔄")

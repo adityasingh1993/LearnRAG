@@ -249,6 +249,6 @@ st.code(json.dumps(messages[msg_type], indent=2), language="json")
 st.divider()
 cols = st.columns(3)
 with cols[0]:
-    st.page_link("pages/3_🔌_MCP/01_🔌_MCP_Basics.py", label="← MCP Basics", icon="🔌")
+    st.page_link("pages/16_🔌_MCP_Basics.py", label="← MCP Basics", icon="🔌")
 with cols[2]:
-    st.page_link("pages/3_🔌_MCP/03_🧱_MCP_Primitives.py", label="MCP Primitives →", icon="🧱")
+    st.page_link("pages/18_🧱_MCP_Primitives.py", label="MCP Primitives →", icon="🧱")

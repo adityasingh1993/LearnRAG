@@ -231,6 +231,6 @@ st.markdown("""
 st.divider()
 cols = st.columns(3)
 with cols[0]:
-    st.page_link("pages/4_🤝_A2A/05_🎮_A2A_Playground.py", label="← A2A Playground", icon="🎮")
+    st.page_link("pages/26_🎮_A2A_Playground.py", label="← A2A Playground", icon="🎮")
 with cols[2]:
     st.page_link("app.py", label="🏠 Home", icon="🏠")
