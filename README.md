@@ -14,6 +14,7 @@ No boring slides. Learn by building.
 | 🔍 **Retrieval** | Compare similarity vs MMR vs hybrid search |
 | 🤖 **Generation** | Prompt templates (Standard, CoT, Analysis), streaming |
 | 🔬 **Full Pipeline** | End-to-end walkthrough with all strategies & guardrails |
+| 📊 **Evaluation** | Enterprise-grade retrieval & generation metrics, LLM-as-judge, A/B comparison |
 | 🎮 **Playground** | Visual pipeline builder — configure, chat, experiment |
 | ❓ **Help & Reference** | How every Playground feature works, with learning resources |
 
@@ -151,8 +152,9 @@ RAG/
 │   ├── 4_🔍_Retrieval.py
 │   ├── 5_🤖_Generation.py
 │   ├── 6_🔬_Full_Pipeline.py
-│   ├── 7_🎮_Playground.py
-│   └── 8_❓_Help.py
+│   ├── 7_📊_Evaluation.py
+│   ├── 8_🎮_Playground.py
+│   └── 9_❓_Help.py
 └── data/samples/               # Sample documents
 ```
 

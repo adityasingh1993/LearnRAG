@@ -123,10 +123,12 @@ modules = [
      "intermediate", "5_🤖_Generation"),
     ("🔬", "Full Pipeline", "See all components work together end-to-end.",
      "intermediate", "6_🔬_Full_Pipeline"),
-    ("🎮", "Playground", "Build your own RAG pipeline with drag-and-drop!",
-     "intermediate", "7_🎮_Playground"),
+    ("📊", "Evaluation", "Measure pipeline quality with enterprise-grade metrics.",
+     "advanced", "7_📊_Evaluation"),
+    ("🎮", "Playground", "Build your own RAG pipeline visually!",
+     "advanced", "8_🎮_Playground"),
     ("❓", "Help & Reference", "How every Playground feature works, with resources.",
-     "advanced", "8_❓_Help"),
+     "advanced", "9_❓_Help"),
 ]
 
 rows = [modules[i:i+4] for i in range(0, len(modules), 4)]

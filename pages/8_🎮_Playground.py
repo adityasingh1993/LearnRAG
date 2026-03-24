@@ -613,6 +613,6 @@ if st.session_state.get("pg_built"):
 st.markdown("---")
 col1, col2 = st.columns([1, 1])
 with col1:
-    st.page_link("pages/6_🔬_Full_Pipeline.py", label="← Full Pipeline", icon="🔬")
+    st.page_link("pages/7_📊_Evaluation.py", label="← Evaluation", icon="📊")
 with col2:
-    st.page_link("pages/8_❓_Help.py", label="Next: Help & Reference →", icon="❓")
+    st.page_link("pages/9_❓_Help.py", label="Next: Help & Reference →", icon="❓")

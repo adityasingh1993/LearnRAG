@@ -271,4 +271,4 @@ col1, col2 = st.columns([1, 1])
 with col1:
     st.page_link("pages/5_🤖_Generation.py", label="← Generation", icon="🤖")
 with col2:
-    st.page_link("pages/7_🎮_Playground.py", label="Next: Playground →", icon="🎮")
+    st.page_link("pages/7_📊_Evaluation.py", label="Next: Evaluation →", icon="📊")
