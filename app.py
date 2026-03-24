@@ -79,12 +79,12 @@ prompting_pages = [
 
 pg = st.navigation({
     "": [home],
+    "Prompting": prompting_pages,
+    "Embeddings": embedding_pages,
     "RAG": rag_pages,
     "Agents": agent_pages,
     "MCP": mcp_pages,
     "A2A": a2a_pages,
-    "Embeddings": embedding_pages,
-    "Prompting": prompting_pages,
 })
 
 pg.run()
