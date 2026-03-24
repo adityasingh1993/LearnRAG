@@ -615,4 +615,4 @@ col1, col2 = st.columns([1, 1])
 with col1:
     st.page_link("pages/6_🔬_Full_Pipeline.py", label="← Full Pipeline", icon="🔬")
 with col2:
-    st.page_link("pages/8_🚀_Advanced_Topics.py", label="Next: Advanced Topics →", icon="🚀")
+    st.page_link("pages/8_❓_Help.py", label="Next: Help & Reference →", icon="❓")

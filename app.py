@@ -125,8 +125,8 @@ modules = [
      "intermediate", "6_🔬_Full_Pipeline"),
     ("🎮", "Playground", "Build your own RAG pipeline with drag-and-drop!",
      "intermediate", "7_🎮_Playground"),
-    ("🚀", "Advanced Topics", "Hybrid search, reranking, evaluation, and more.",
-     "advanced", "8_🚀_Advanced_Topics"),
+    ("❓", "Help & Reference", "How every Playground feature works, with resources.",
+     "advanced", "8_❓_Help"),
 ]
 
 rows = [modules[i:i+4] for i in range(0, len(modules), 4)]

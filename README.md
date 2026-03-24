@@ -15,7 +15,7 @@ No boring slides. Learn by building.
 | 🤖 **Generation** | Prompt templates (Standard, CoT, Analysis), streaming |
 | 🔬 **Full Pipeline** | End-to-end walkthrough with all strategies & guardrails |
 | 🎮 **Playground** | Visual pipeline builder — configure, chat, experiment |
-| 🚀 **Advanced** | Chunking deep dive, retrieval strategies, guardrails, evaluation |
+| ❓ **Help & Reference** | How every Playground feature works, with learning resources |
 
 ### Chunking Strategies (8)
 
@@ -152,7 +152,7 @@ RAG/
 │   ├── 5_🤖_Generation.py
 │   ├── 6_🔬_Full_Pipeline.py
 │   ├── 7_🎮_Playground.py
-│   └── 8_🚀_Advanced_Topics.py
+│   └── 8_❓_Help.py
 └── data/samples/               # Sample documents
 ```
 
