@@ -147,6 +147,54 @@ modules = [
     ("📊", "Prompt Analytics", "Track performance and history across sessions.", "advanced"),
 ]
 
+# Page routes for each module card title.
+module_paths = {
+    "Learn the Basics": "pages/1_📖_Learn_Basics.py",
+    "Embeddings": "pages/2_🧩_Embeddings.py",
+    "Vector Stores": "pages/3_📦_Vector_Stores.py",
+    "Retrieval": "pages/4_🔍_Retrieval.py",
+    "Generation": "pages/5_🤖_Generation.py",
+    "Full Pipeline": "pages/6_🔬_Full_Pipeline.py",
+    "Evaluation": "pages/7_📊_Evaluation.py",
+    "Playground": "pages/8_🎮_Playground.py",
+    "RAG Help": "pages/9_❓_Help.py",
+    "Agent Basics": "pages/10_🤖_Agent_Basics.py",
+    "Tools": "pages/11_🔧_Tools.py",
+    "Agent Patterns": "pages/12_🔄_Agent_Patterns.py",
+    "Multi-Agent": "pages/13_🌐_Multi_Agent.py",
+    "Agent Playground": "pages/14_🎮_Agent_Playground.py",
+    "Agent Help": "pages/15_❓_Agent_Help.py",
+    "MCP Basics": "pages/16_🔌_MCP_Basics.py",
+    "MCP Architecture": "pages/17_🏗️_MCP_Architecture.py",
+    "MCP Primitives": "pages/18_🧱_MCP_Primitives.py",
+    "MCP Server Builder": "pages/19_🛠️_MCP_Server_Builder.py",
+    "MCP Playground": "pages/20_🎮_MCP_Playground.py",
+    "MCP Help": "pages/21_❓_MCP_Help.py",
+    "A2A Basics": "pages/22_🤝_A2A_Basics.py",
+    "Agent Cards": "pages/23_🪪_Agent_Cards.py",
+    "A2A Tasks": "pages/24_📋_A2A_Tasks.py",
+    "A2A Collaboration": "pages/25_🌐_A2A_Collaboration.py",
+    "A2A Playground": "pages/26_🎮_A2A_Playground.py",
+    "A2A Help": "pages/27_❓_A2A_Help.py",
+    "Bag of Words": "pages/28_📊_Bag_of_Words.py",
+    "TF-IDF": "pages/29_📈_TF_IDF.py",
+    "Word2Vec": "pages/30_🧠_Word2Vec.py",
+    "GloVe": "pages/31_🌐_GloVe.py",
+    "Transformers": "pages/32_🤖_Transformers.py",
+    "Grand Comparison": "pages/33_🔬_Grand_Comparison.py",
+    "Semantic Search": "pages/34_🔍_Semantic_Search.py",
+    "Guess Embedding": "pages/35_🎮_Guess_Embedding.py",
+    "3D Universe": "pages/36_🌌_3D_Universe.py",
+    "Multimodal CLIP": "pages/37_🖼️_Multimodal.py",
+    "Vector Similarity": "pages/38_📐_Vector_Similarity.py",
+    "Embedding Resources": "pages/39_📚_Resources.py",
+    "Prompting Tutorial": "pages/40_📖_Tutorial.py",
+    "Prompt Arena": "pages/41_🏟️_Prompt_Arena.py",
+    "Hallucination Detector": "pages/42_🔍_Hallucination_Detector.py",
+    "Prompt Workbench": "pages/43_🛠️_Prompt_Workbench.py",
+    "Prompt Analytics": "pages/44_📊_Analytics.py",
+}
+
 rows = [modules[i:i+4] for i in range(0, len(modules), 4)]
 for row in rows:
     cols = st.columns(4)
@@ -160,6 +208,14 @@ for row in rows:
                 <p>{desc}</p>
             </div>
             """, unsafe_allow_html=True)
+            page_path = module_paths.get(title)
+            if page_path:
+                st.page_link(
+                    page_path,
+                    label=f"Open: {title}",
+                    icon="🔗",
+                    use_container_width=True,
+                )
 
 st.markdown("")
 
